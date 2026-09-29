@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: gamematch
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: gamematch-db
+          property: connectionString
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_KEY
+        sync: false
+      - key: RIOT_API_KEY
+        sync: false
+      - key: RIOT_PLATFORM
+        value: kr
+      - key: RIOT_REGION
+        value: asia
+      - key: RIOT_RSO_CLIENT_ID
+        sync: false
+      - key: RIOT_RSO_CLIENT_SECRET
+        sync: false
+      - key: RIOT_RSO_REDIRECT_URI
+        sync: false
+
+databases:
+  - name: gamematch-db
+    databaseName: gamematch
+    user: gamematch
