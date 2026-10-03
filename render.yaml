@@ -39,3 +39,4 @@ databases:
   - name: gamematch-db
     databaseName: gamematch
     user: gamematch
+    
